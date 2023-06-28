@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:hello_world/camera/camera_viewer.dart';
+import 'package:hello_world/global_bindings.dart';
+import 'camera/camera_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -7,15 +11,15 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Camera Calculator',
+    return GetMaterialApp(
+      title: 'Math Vision',
       theme: ThemeData(
         primarySwatch: Colors.cyan,
       ),
-      home: const MyHomePage(title: 'Camera Calculator'),
+      home: const MyHomePage(title: 'Math Vision'),
+      initialBinding: GlobalBindings(),
     );
   }
 }
@@ -49,8 +53,12 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed:() => print("tapped"),
-        tooltip: 'Increment',
+        onPressed:(){
+          Navigator.push(context,
+          MaterialPageRoute(builder: (context) => const CameraScreen()),
+          );
+        },
+        tooltip: 'Open Camera',
         child: const Icon(Icons.camera_alt_outlined),
       ), 
     );
