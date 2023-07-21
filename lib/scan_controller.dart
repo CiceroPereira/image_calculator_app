@@ -96,7 +96,8 @@ class ScanController extends GetxController{
       if(recognitions != null){
         label = recognitions.toString();
       }
-      print(recognitions);
+      //print(recognitions);
+      update();
     
   }
 

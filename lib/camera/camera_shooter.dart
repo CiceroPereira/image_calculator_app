@@ -7,6 +7,8 @@ class CameraShooter extends GetView<ScanController> {
 
   @override
   Widget build(BuildContext context){
-    return Text(controller.get_label());
+    return GetBuilder<ScanController>(builder: (controller){
+      return Text(controller.get_label());
+    });
   }
 }
